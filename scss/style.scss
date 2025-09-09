@@ -1,0 +1,381 @@
+@use "variables.scss" as v;
+@use "mixins.scss" as m;
+
+* {
+    font-family: "Inconsolata", monospace;
+    box-sizing: border-box;
+    margin: 0px;
+}
+body, html{
+    height: 100dvh;
+    overflow: hidden;
+}
+body{
+    position: relative;
+    > img{
+        display: none;
+        position: absolute;
+        width: 300px;
+        z-index: -1;
+    }
+    > img:nth-child(1), > img:nth-child(2){
+        bottom: 0;
+        left: 0;
+        @include m.animation(0 100% 0% 0);
+    }
+    > img:nth-child(3){
+        display: block;
+        width: 30%;
+        top: 30px;
+        right: 0;
+        @include m.animation(0 0 100% 0);
+    }
+    > img:nth-child(4){
+        display: block;
+        width: 100%;
+        top: 0;
+    }
+    > img:nth-child(5){
+        display: block;
+        width: 150px;
+        top: 0;
+        left: 0;
+        transform: translate(-25%, -25%);
+    }
+    position: relative;
+    @include m.layout(v.$mobile){
+        background-image: url(../assets/images/background-mobile.png);
+        > img:nth-child(1){
+            display: block;
+        }
+    }@include m.layout(v.$tablet){
+        background-image: url(../assets/images/background-tablet.png);
+        > img:nth-child(1){
+            display: block;
+        }
+    }@include m.layout(v.$desktop){
+        background-image: url(../assets/images/background-desktop.png);
+        > img:nth-child(1){
+            display: none;
+        }
+        > img:nth-child(2){
+            display: block;
+        }
+    }
+    background-size: cover;
+    &::before{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        border-radius: 50%;
+        z-index: -10;
+        @include m.illusion(300px, 10s, rgb(44, 1, 108));
+    }
+    &::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        z-index: -10;
+        @include m.illusion(300px, 5s, rgb(0, 0, 0));
+    }
+
+    .ticketShow{
+        @include m.ticketBlur(1s, 1s);
+    }
+    .ticketContainer{
+        position: absolute;
+        width: 100%;
+        height: 80%;
+        padding: 20px;
+        @include m.flex(column, space-around, center);
+        gap: 30px;
+        color:white;
+        .logoTicket{
+            @include m.flex(row, space-around, center);
+            gap: 20px;
+            color: v.$Neutral-300;
+            font-size: 25px;
+            font-weight: 700;
+        }
+        .headingTicket{
+            max-width: 500px;
+            text-align: center;
+            h3{
+                font-size: 40px;
+                font-weight: 700;
+                color: v.$Neutral-300;
+                margin-bottom: 25px;
+                span{
+                    background: v.$Gradient;
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    color: transparent;
+                }
+            }
+            h4{
+                font-weight: 700;
+                color: v.$Neutral-500;
+                span{
+                    color: v.$Orange-700
+                }
+            }
+        }
+        .ticket{
+            position: relative;
+            img{
+                width: 100%;
+            }
+            .ticketLogo{
+                @include m.layout(v.$mobile){
+                    width: 35px;
+                }
+                @include m.layout(v.$tablet){
+                    width: 60px;
+                }
+            }
+            .ticketId{
+                position: absolute;
+                transform: rotateZ(90deg);
+                top: 42%;
+                right: 11px;
+                @include m.layout(v.$mobile){
+                    top: 42.5%;
+                    right: 10px;
+                    font-size: 25px;
+                }
+                font-size: 30px;
+                font-weight: 100;
+                opacity: .5;
+            }
+            .top, .bottom{
+                position: absolute;
+                width: 100%;
+                height: 50%;
+                padding: 20px;
+            }
+            .top{
+                @include m.flex(row, left, flex-start);
+                gap: 20px;
+                top: 0;
+                .right{
+                    gap: 10px;
+                    @include m.flex(column, space-between, left);
+                    span:nth-child(1){
+                        @include m.layout(v.$mobile){
+                            font-size: 1.25rem;
+                        }
+                        @include m.layout(v.$tablet){
+                            font-size: 3rem;
+                        }
+                        font-weight: 700;
+                        color: v.$Neutral-300;
+                    }
+                }
+            }
+            .bottom{
+                @include m.flex(row, flex-start, flex-end);
+                gap: 20px;
+                bottom: 0;
+                .left{
+                    .avatar{
+                        @include m.layout(v.$mobile){
+                            width: 50px;
+                        }
+                        @include m.layout(v.$tablet){
+                            width: 80px;
+                        }
+                        border-radius: 5px;
+                    }
+                }
+                .right{
+                    @include m.flex(column, center, flex-start);
+                    gap: 10px;
+                    .name{
+                            @include m.layout(v.$mobile){
+                                font-size: 1.25rem;
+                            }
+                            @include m.layout(v.$tablet){
+                                font-size: 2.5rem;
+                            }
+                            font-weight: 700;
+                            color: v.$Neutral-300;
+                        }
+                    div{
+                        @include m.flex(row, space-between, center);
+                        img{
+                            width: 25px;
+                            margin-right: 10px;
+                        }
+                        .github{
+                            font-weight: 700;
+                            color: v.$Neutral-300;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.container{
+    position: relative;
+    padding: 20px;
+    height: 100%;
+    top: -30px;
+    scale: 0.85;
+    @include m.flex(column, space-between, center);
+    > div, > form{
+        width: 100%;
+    }
+}
+.submitActive{
+    @include m.submitBlur(1s);
+}
+
+.logo{
+    position: relative;
+    top: 50%;
+    scale: 200%;
+    @include m.flex(row, center);
+    @include m.logoTransform(1.5s);
+    gap: 20px;
+    span{
+        color: v.$Neutral-300;
+        font-size: 35px;
+        font-weight: 700;
+    }
+}
+.heading{
+    text-align: center;
+    @include m.flex(column, initial, center);
+    gap: 20px;
+    opacity: 0;
+    @include m.blur(1s, 2s, 100px, 0);
+    h1{
+        max-width: 500px;
+        font-weight: 700;
+        color: v.$Neutral-300;
+    }
+    h3{
+        font-weight: 700;
+        color: v.$Neutral-500;
+    }
+}
+form{
+    opacity: 0;
+    height: 70%;
+    max-width: v.$tablet / 1.5;
+    @include m.blur(1s, 2.5s, 100px, 0);
+    &, > div{
+        @include m.flex(column, space-around);
+        gap: 10px
+    }
+    &{
+        .avtContainer{
+            position: relative;
+            background-color: v.$Neutral-900;
+            border: v.$size dashed v.$Neutral-500;
+            padding: 15px;
+            border-radius: v.$radius;
+            @include m.flex(column, initial, center);
+            gap: 10px;
+            cursor: pointer;
+            &:hover{
+                background-color: rgba(v.$Neutral-500, 0.5);
+                transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            }
+            &:focus{
+                outline: 2px solid v.$Neutral-500;
+            }
+            img{
+                background-color: v.$Neutral-700;
+                padding: v.$radius;
+                border-radius: 10px;
+                width: 12.5%;
+            }
+            input{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                z-index: 3;
+                opacity: 0;
+            }
+        }
+        .info, .error{
+            @include m.flex(row, left, center);
+            font-size: 12.5px;
+            color: v.$Neutral-900;
+            img{
+                margin-right: 10px;
+            }
+        }
+        .imgError{
+            span{
+                color: v.$Orange-700;
+            }
+            img {
+                margin-right: 10px;
+                filter: brightness(0) saturate(100%) invert(44%) sepia(94%) saturate(1562%) hue-rotate(-7deg) brightness(101%) contrast(101%);
+            }
+        }
+        .error{
+            display: none;
+            span{
+                color: v.$Orange-700;
+            }
+            img {
+                margin-right: 10px;
+                filter: brightness(0) saturate(100%) invert(44%) sepia(94%) saturate(1562%) hue-rotate(-7deg) brightness(101%) contrast(101%);
+            }
+        }
+        .error.appear{
+            display: flex;
+        }
+        span{
+            font-weight: 600;
+            color: v.$Neutral-300;
+        }
+        input{
+            background-color: v.$Neutral-900;
+            padding: 15px;
+            border: v.$size solid v.$Neutral-500;
+            border-radius: v.$radius;
+            color: v.$Neutral-300;
+            cursor: pointer;
+            &:hover{
+                background-color: rgba(v.$Neutral-500, 0.5);
+                transition: background-color 0.3s ease-in-out;
+            }
+            &:focus{
+                outline: 2px solid v.$Neutral-500;
+            }
+        }
+        button{
+            background-color: v.$Orange-700;
+            color: v.$Neutral-900;
+            padding: 15px;
+            border: v.$size solid transparent;
+            border-radius: v.$radius;
+            font-weight: 700;
+            font-size: 17.5px;
+            cursor: pointer;
+        }
+    }
+}
+
+
+
+
+
+.attribution{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    color: white;
+}

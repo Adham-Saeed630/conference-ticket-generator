@@ -1,0 +1,101 @@
+@use "variables.scss";
+
+
+@mixin layout($size){
+    @media (min-width: #{$size}){
+        @content;
+    }
+}
+
+@mixin flex($dir, $justify: initial, $align: initial){
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin animation($inset) {
+    @keyframes fadeIn {
+       0%   { clip-path: inset(#{$inset});} 
+       40%  { clip-path: inset(0 0 0 0);}
+       100%  { clip-path: inset(0 0 0 0);}   
+  }
+  animation: fadeIn 4s infinite alternate-reverse;
+}
+
+
+@mixin illusion($spread, $duration, $color){
+    @keyframes illusion{
+        0%{
+            box-shadow: 0px 0px 200px 0px $color;
+        }50%{
+            box-shadow: 0px 0px 200px #{$spread} $color;
+        }100%{
+            box-shadow: 0px 0px 200px 0px $color;
+        }
+    }
+    animation: illusion #{$duration} infinite;
+}
+
+@mixin logoTransform($duration){
+    @keyframes logoTransform{
+        from{
+           top: 50%;
+           scale: 200%;
+        }to{
+           top: 0%;
+           scale: 1;
+        }
+    }
+    animation: logoTransform $duration cubic-bezier( 0.445, 0.05, 0.55, 0.95 ) forwards 0.5s;
+}
+
+@mixin blur($duration, $delay, $start, $end){
+    @keyframes blur{
+        from{
+            transform: translateX($start);
+            @if($start == 0){
+                opacity: 1;
+            }@if($start != 0){
+                opacity: 0;
+            }
+        }to{
+            transform: translateX($end);
+            @if($end == 0){
+                opacity: 1;
+            }@if($end != 0){
+                opacity: 0;
+            }
+        }
+    }
+    animation: blur $duration ease-in-out forwards $delay; 
+}
+
+@mixin submitBlur($duration){
+    @keyframes submitBlur{
+        0%{
+            opacity: 1;
+        } 99%{
+            opacity: 0;
+            transform: translateX(-100px);
+        } 100%{
+            display: none;
+        }
+    }
+    animation: submitBlur $duration ease-in-out forwards;
+}
+
+@mixin ticketBlur($duration, $delay){
+    @keyframes ticketBlur{
+        from{
+            display: flex;
+            opacity: 0;
+            transform: translateX(100px);
+        } to{
+            display: flex;
+            opacity: 1;
+            transform: translateX(0px);
+        }
+    }
+    animation: ticketBlur $duration ease-in-out forwards $delay;
+}

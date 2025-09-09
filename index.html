@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="css/style.css">  <!--link to external CSS file-->
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@50..200,200..900&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Conference ticket generator</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <img src="/assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg" alt="">
+  <img src="/assets/images/pattern-squiggly-line-bottom-desktop.svg" alt="">
+  <img src="/assets/images/pattern-squiggly-line-top.svg" alt="">
+  <img src="/assets/images/pattern-lines.svg" alt="">
+  <img src="/assets/images/pattern-circle.svg" alt="">
+  <div class="container">
+    <div class="logo">
+      <img src="/assets/images/logo-mark.svg" alt="">
+      <span>Coding Conf</span>
+    </div>
+    <div class="heading">
+      <h1>  Your Journey to Coding Conf 2025 Starts Here!</h4>
+      <h3>  Secure your spot at next year's biggest coding conference.</h1>
+    </div>
+    <form action="">
+      <div class="inputField-1">
+        <span>Upload Avatar</span>
+        <div class="avtContainer">
+          <img src="assets/images/icon-upload.svg" alt="">
+          <input type="file" accept="image/png, image/jpeg">
+          <span>Drag and drop or click to upload</span>
+        </div>
+        <div class="info">
+          <img src="assets/images/icon-info.svg" alt="">
+          <span>Upload your photo (JPG or PNG, max size: 500KB).</span>
+        </div>
+      </div>
+      <div class="inputField-2">
+        <span>Full Name</span>
+        <input type="text"  class="name">
+        <div class="error">
+          <img src="assets/images/icon-info.svg" alt="">
+          <span class="errorText">Please enter your full name.</span>
+        </div>
+      </div>
+      <div class="inputField-3">
+        <span>Email Address</span>
+        <input type="text" placeholder="example@email.com" class="email">
+        <div class="error">
+          <img src="assets/images/icon-info.svg" alt="">
+          <span class="errorText">Please enter a valid email address.</span>
+        </div>
+      </div>
+      <div class="inputField-4">
+        <span>GitHub Username</span>
+        <input type="text" placeholder="@yourusername" class="github">
+        <div class="error">
+          <img src="assets/images/icon-info.svg" alt="">
+          <span class="errorText">Please enter a valid GitHub username.</span>
+        </div>
+      </div>
+      <button type="submit" class="submit">Generate My Ticket</button>
+    </form>
+  </div>
+  <div class="ticketContainer">
+    <div class="logoTicket">
+      <img src="/assets/images/logo-mark.svg" alt="" srcset="">
+      <span>Conding Conf</span>
+    </div>
+    <div class="headingTicket">
+      <h3>Your Ticket for Coding Conf 2025</h3>
+      <h4>Secure your spot at next year's biggest coding conference.</h4>
+    </div>
+    <div class="ticket">
+      <img src="assets/images/pattern-ticket.svg" alt="ticket">
+      <div class="top">
+        <div class="left">
+          <img src="assets/images/logo-mark.svg" alt="" class="ticketLogo">
+        </div>
+        <div class="right">
+          <span>Coding Conf</span>
+          <span class="date">Jan 31, 2025 / Astin, TX</span>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="left">
+          <img src="assets/images/image-avatar.jpg" alt="" class="avatar">
+        </div>
+        <div class="right">
+          <span class="name">Your Name Here</span>
+          <div>
+            <img src="assets/images/icon-github.svg" alt="github">
+            <span class="github">@yourusername</span>
+          </div>
+        </div>
+      </div>
+      <span class="ticketId">#12345</span>
+    </div>
+  </div>
+
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a href="https://github.com/Adham-Saeed630">Adham Saeed</a>.
+  </div>
+</body>
+<script src="js/main.js"></script>
+</html>
+
+
+
+
+

@@ -1,0 +1,534 @@
+/*(text)*/
+* {
+  font-family: "Inconsolata", monospace;
+  box-sizing: border-box;
+  margin: 0px;
+}
+
+body, html {
+  height: 100dvh;
+  overflow: hidden;
+}
+
+body {
+  position: relative;
+  position: relative;
+  background-size: cover;
+}
+body > img {
+  display: none;
+  position: absolute;
+  width: 300px;
+  z-index: -1;
+}
+body > img:nth-child(1), body > img:nth-child(2) {
+  bottom: 0;
+  left: 0;
+  animation: fadeIn 4s infinite alternate-reverse;
+}
+@keyframes fadeIn {
+  0% {
+    clip-path: inset(0 100% 0% 0);
+  }
+  40% {
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+body > img:nth-child(3) {
+  display: block;
+  width: 30%;
+  top: 30px;
+  right: 0;
+  animation: fadeIn 4s infinite alternate-reverse;
+}
+@keyframes fadeIn {
+  0% {
+    clip-path: inset(0 0 100% 0);
+  }
+  40% {
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+body > img:nth-child(4) {
+  display: block;
+  width: 100%;
+  top: 0;
+}
+body > img:nth-child(5) {
+  display: block;
+  width: 150px;
+  top: 0;
+  left: 0;
+  transform: translate(-25%, -25%);
+}
+@media (min-width: 320px) {
+  body {
+    background-image: url(../assets/images/background-mobile.png);
+  }
+  body > img:nth-child(1) {
+    display: block;
+  }
+}
+@media (min-width: 768px) {
+  body {
+    background-image: url(../assets/images/background-tablet.png);
+  }
+  body > img:nth-child(1) {
+    display: block;
+  }
+}
+@media (min-width: 1440px) {
+  body {
+    background-image: url(../assets/images/background-desktop.png);
+  }
+  body > img:nth-child(1) {
+    display: none;
+  }
+  body > img:nth-child(2) {
+    display: block;
+  }
+}
+body::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  z-index: -10;
+  animation: illusion 10s infinite;
+}
+@keyframes illusion {
+  0% {
+    box-shadow: 0px 0px 200px 0px rgb(44, 1, 108);
+  }
+  50% {
+    box-shadow: 0px 0px 200px 300px rgb(44, 1, 108);
+  }
+  100% {
+    box-shadow: 0px 0px 200px 0px rgb(44, 1, 108);
+  }
+}
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  z-index: -10;
+  animation: illusion 5s infinite;
+}
+@keyframes illusion {
+  0% {
+    box-shadow: 0px 0px 200px 0px rgb(0, 0, 0);
+  }
+  50% {
+    box-shadow: 0px 0px 200px 300px rgb(0, 0, 0);
+  }
+  100% {
+    box-shadow: 0px 0px 200px 0px rgb(0, 0, 0);
+  }
+}
+body .ticketShow {
+  animation: ticketBlur 1s ease-in-out forwards 1s;
+}
+@keyframes ticketBlur {
+  from {
+    display: flex;
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    display: flex;
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+body .ticketContainer {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 30px;
+  color: white;
+}
+body .ticketContainer .logoTicket {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  color: hsl(252, 6%, 83%);
+  font-size: 25px;
+  font-weight: 700;
+}
+body .ticketContainer .headingTicket {
+  max-width: 500px;
+  text-align: center;
+}
+body .ticketContainer .headingTicket h3 {
+  font-size: 40px;
+  font-weight: 700;
+  color: hsl(252, 6%, 83%);
+  margin-bottom: 25px;
+}
+body .ticketContainer .headingTicket h3 span {
+  background: linear-gradient(to right, hsl(7, 86%, 67%), hsl(0, 0%, 100%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+body .ticketContainer .headingTicket h4 {
+  font-weight: 700;
+  color: hsl(245, 15%, 58%);
+}
+body .ticketContainer .headingTicket h4 span {
+  color: hsl(7, 71%, 60%);
+}
+body .ticketContainer .ticket {
+  position: relative;
+}
+body .ticketContainer .ticket img {
+  width: 100%;
+}
+@media (min-width: 320px) {
+  body .ticketContainer .ticket .ticketLogo {
+    width: 35px;
+  }
+}
+@media (min-width: 768px) {
+  body .ticketContainer .ticket .ticketLogo {
+    width: 60px;
+  }
+}
+body .ticketContainer .ticket .ticketId {
+  position: absolute;
+  transform: rotateZ(90deg);
+  top: 42%;
+  right: 11px;
+  font-size: 30px;
+  font-weight: 100;
+  opacity: 0.5;
+}
+@media (min-width: 320px) {
+  body .ticketContainer .ticket .ticketId {
+    top: 42.5%;
+    right: 10px;
+    font-size: 25px;
+  }
+}
+body .ticketContainer .ticket .top, body .ticketContainer .ticket .bottom {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  padding: 20px;
+}
+body .ticketContainer .ticket .top {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: flex-start;
+  gap: 20px;
+  top: 0;
+}
+body .ticketContainer .ticket .top .right {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+}
+body .ticketContainer .ticket .top .right span:nth-child(1) {
+  font-weight: 700;
+  color: hsl(252, 6%, 83%);
+}
+@media (min-width: 320px) {
+  body .ticketContainer .ticket .top .right span:nth-child(1) {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 768px) {
+  body .ticketContainer .ticket .top .right span:nth-child(1) {
+    font-size: 3rem;
+  }
+}
+body .ticketContainer .ticket .bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 20px;
+  bottom: 0;
+}
+body .ticketContainer .ticket .bottom .left .avatar {
+  border-radius: 5px;
+}
+@media (min-width: 320px) {
+  body .ticketContainer .ticket .bottom .left .avatar {
+    width: 50px;
+  }
+}
+@media (min-width: 768px) {
+  body .ticketContainer .ticket .bottom .left .avatar {
+    width: 80px;
+  }
+}
+body .ticketContainer .ticket .bottom .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+}
+body .ticketContainer .ticket .bottom .right .name {
+  font-weight: 700;
+  color: hsl(252, 6%, 83%);
+}
+@media (min-width: 320px) {
+  body .ticketContainer .ticket .bottom .right .name {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 768px) {
+  body .ticketContainer .ticket .bottom .right .name {
+    font-size: 2.5rem;
+  }
+}
+body .ticketContainer .ticket .bottom .right div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+body .ticketContainer .ticket .bottom .right div img {
+  width: 25px;
+  margin-right: 10px;
+}
+body .ticketContainer .ticket .bottom .right div .github {
+  font-weight: 700;
+  color: hsl(252, 6%, 83%);
+}
+
+.container {
+  position: relative;
+  padding: 20px;
+  height: 100%;
+  top: -30px;
+  scale: 0.85;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.container > div, .container > form {
+  width: 100%;
+}
+
+.submitActive {
+  animation: submitBlur 1s ease-in-out forwards;
+}
+@keyframes submitBlur {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    display: none;
+  }
+}
+
+.logo {
+  position: relative;
+  top: 50%;
+  scale: 200%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: initial;
+  animation: logoTransform 1.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards 0.5s;
+  gap: 20px;
+}
+@keyframes logoTransform {
+  from {
+    top: 50%;
+    scale: 200%;
+  }
+  to {
+    top: 0%;
+    scale: 1;
+  }
+}
+.logo span {
+  color: hsl(252, 6%, 83%);
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.heading {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: initial;
+  align-items: center;
+  gap: 20px;
+  opacity: 0;
+  animation: blur 1s ease-in-out forwards 2s;
+}
+@keyframes blur {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.heading h1 {
+  max-width: 500px;
+  font-weight: 700;
+  color: hsl(252, 6%, 83%);
+}
+.heading h3 {
+  font-weight: 700;
+  color: hsl(245, 15%, 58%);
+}
+
+form {
+  opacity: 0;
+  height: 70%;
+  max-width: 512px;
+  animation: blur 1s ease-in-out forwards 2.5s;
+}
+@keyframes blur {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+form, form > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: initial;
+  gap: 10px;
+}
+form .avtContainer {
+  position: relative;
+  background-color: hsl(248, 70%, 10%);
+  border: 1.5px dashed hsl(245, 15%, 58%);
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: initial;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+form .avtContainer:hover {
+  background-color: rgba(134.5125, 131.835, 163.965, 0.5);
+  transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+form .avtContainer:focus {
+  outline: 2px solid hsl(245, 15%, 58%);
+}
+form .avtContainer img {
+  background-color: hsl(245, 19%, 35%);
+  padding: 10px;
+  border-radius: 10px;
+  width: 12.5%;
+}
+form .avtContainer input {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+  opacity: 0;
+}
+form .info, form .error {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  font-size: 12.5px;
+  color: hsl(248, 70%, 10%);
+}
+form .info img, form .error img {
+  margin-right: 10px;
+}
+form .imgError span {
+  color: hsl(7, 71%, 60%);
+}
+form .imgError img {
+  margin-right: 10px;
+  filter: brightness(0) saturate(100%) invert(44%) sepia(94%) saturate(1562%) hue-rotate(-7deg) brightness(101%) contrast(101%);
+}
+form .error {
+  display: none;
+}
+form .error span {
+  color: hsl(7, 71%, 60%);
+}
+form .error img {
+  margin-right: 10px;
+  filter: brightness(0) saturate(100%) invert(44%) sepia(94%) saturate(1562%) hue-rotate(-7deg) brightness(101%) contrast(101%);
+}
+form .error.appear {
+  display: flex;
+}
+form span {
+  font-weight: 600;
+  color: hsl(252, 6%, 83%);
+}
+form input {
+  background-color: hsl(248, 70%, 10%);
+  padding: 15px;
+  border: 1.5px solid hsl(245, 15%, 58%);
+  border-radius: 10px;
+  color: hsl(252, 6%, 83%);
+  cursor: pointer;
+}
+form input:hover {
+  background-color: rgba(134.5125, 131.835, 163.965, 0.5);
+  transition: background-color 0.3s ease-in-out;
+}
+form input:focus {
+  outline: 2px solid hsl(245, 15%, 58%);
+}
+form button {
+  background-color: hsl(7, 71%, 60%);
+  color: hsl(248, 70%, 10%);
+  padding: 15px;
+  border: 1.5px solid transparent;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 17.5px;
+  cursor: pointer;
+}
+
+.attribution {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  color: white;
+}/*# sourceMappingURL=style.css.map */
